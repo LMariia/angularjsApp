@@ -1,0 +1,98 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="model.reset()"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+            <form name="model.accountFrom" id="myForm" novalidate>
+                <div class="form-group" ng-class="{'has-error':(model.accountFrom.inputName.$dirty && model.accountFrom.inputName.$invalid)}">
+                    <label class="control-label" for="name">Name</label>
+                    <span class="help-block"
+                          ng-show="(model.accountFrom.inputName.$dirty && (model.accountFrom.inputName.$error.minlength ||
+                           model.accountFrom.inputName.$error.maxlength))">
+                           ( should be 3..15 characters )
+                    </span>
+                    <input type="text"
+                           class="form-control"
+                           name="inputName"
+                           id="name"
+                           placeholder="Provide name 3..15 characters"
+                           ng-model="model.account.name"
+                           ng-minlength="3"
+                           ng-maxlength="15"
+                           required />
+                </div>
+                <div class="form-group"  ng-class="{'has-error':(model.accountFrom.inputLogin.$dirty && model.accountFrom.inputLogin.$invalid)}">
+                    <label class="control-label" for="login">Login</label>
+                    <span class="help-block"
+                          ng-show="(model.accountFrom.inputLogin.$dirty && (model.accountFrom.inputLogin.$error.minlength ||
+                           model.accountFrom.inputLogin.$error.maxlength))">
+                           ( should be 5..15 characters )
+                    </span>
+                    <input type="text"
+                           class="form-control"
+                           name="inputLogin"
+                           id="login"
+                           placeholder="Provide login 5..15 characters"
+                           ng-model="model.account.login"
+                           ng-minlength="5"
+                           ng-maxlength="15"
+                    required />
+                </div>
+                <div class="form-group" ng-class="{'has-error':(model.accountFrom.inputEmail.$dirty && model.accountFrom.inputEmail.$invalid)}">
+                    <label class="control-label" for="email">Email address</label>
+                    <input type="email"
+                           class="form-control"
+                           name="inputEmail"
+                           id="email"
+                           placeholder="Email"
+                           ng-model="model.account.email"
+                           required />
+                </div>
+                <div class="form-group" ng-class="{'has-error':(model.accountFrom.inputAge.$dirty && model.accountFrom.inputAge.$invalid)}">
+                    <label class="control-label" for="age">Age</label>
+                    <span class="help-block"
+                          ng-show="(model.accountFrom.inputAge.$dirty && (model.accountFrom.inputAge.$error.min ||
+                           model.accountFrom.inputAge.$error.max))">
+                           ( should be number from 18 to 100 )
+                    </span>
+                    <input type="number"
+                           class="form-control"
+                           name="inputAge"
+                           id="age"
+                           placeholder="Age"
+                           ng-model="model.account.age"
+                           ng-min="18"
+                           ng-max="100"
+                           required />
+                </div>
+                <div class="form-group" ng-class="{'has-error':(model.accountFrom.inputPhone.$dirty && model.accountFrom.inputPhone.$invalid)}">
+                    <label class="control-label" for="phone">Phone</label>
+                    <input type="tel"
+                           class="form-control"
+                           name="inputPhone"
+                           id="phone"
+                           placeholder="Phone +380(##)###-##-##"
+                           ng-model="model.account.phone"
+                           required />
+                </div>
+                <div class="form-group" ng-class="{'has-error':(model.accountFrom.inputGender.$dirty && model.accountFrom.inputGender.$invalid)}">
+                    <label class="control-label" for="gender">Select gender:</label>
+                    <select class="form-control"
+                            id="gender"
+                            ng-model="model.account.gender"
+                            name="inputGender"
+                            required>
+                        <option value="Female" selected>Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="model.reset()">Close</button>
+            <button class="btn btn-primary" ng-click="model.send()"  class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</div>
