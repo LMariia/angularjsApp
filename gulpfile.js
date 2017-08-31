@@ -42,10 +42,10 @@ gulp.task('inject', function () {
         directory: './dist/lib'
     };
 
-    return gulp.src('./app/index.html')
+    return gulp.src('./index.html')
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, {relative: true}))
-        .pipe(gulp.dest('./app'));
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', function () {
@@ -59,12 +59,10 @@ gulp.task('sass', function () {
 });
 
 gulp.task('cache', function () {
-    var a = gulp.src('app/**/*.html')
+    return gulp.src('app/**/*.html')
         .pipe(templateCache('templates.js', {module: 'myApp', standalone: false}))
-        .pipe(buffer());
-    return merge(a, gulp.src('app/app.js'))
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest('app'));
+        .pipe(buffer())
+        .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['browserify', 'inject']);
+gulp.task('default', ['browserify', 'cache', 'inject']);

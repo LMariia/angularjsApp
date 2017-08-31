@@ -1,10 +1,10 @@
 <div class="container">
     <h3>Account</h3>
-    <account-modal on-create="model.create(newAccount)"
+    <account-modal on-send="model.updateAccount(account)"
                    class="modal fade"
                    tabindex="-1"
                    role="dialog"
-                   account="model.account"
+                   account="model.currentAccount"
                    id="editAccountModal"></account-modal>
     <button type="button"
             class="btn btn-primary"
@@ -13,6 +13,7 @@
     </button>
     <button type="button"
             class="btn btn-primary"
+            ng-click="model.setAccount()"
             data-toggle="modal"
             data-target="#editAccountModal">
         Mod
@@ -41,11 +42,6 @@
         </tr>
         </tbody>
     </table>
-    <account-modal on-create="model.create(newAccount)"
-                   modal-hide="model.hideModal()"
-                   ng-if="model.visibleModal"
-                   account="model.selectedAccount"
-                   id="createAccountModal"></account-modal>
     <div id="chart1" style="width:100%; height:400px;"></div>
 </div>
 

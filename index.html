@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Strict mode throws an error whenever a service tries to use implicit annotations. -->
+<html lang="en" ng-app="myApp" ng-strict-di>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="dist/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="dist/lib/font-awesome/css/font-awesome.min.css" />
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="dist/lib/jquery/dist/jquery.js"></script>
+    <script src="dist/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="dist/lib/highcharts/highstock.js"></script>
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="dist/css/styles.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="contents/constants.js"></script>
+    <script src="dist/app.js"></script>
+    <script src="dist/templates.js"></script>
+    <!-- endinject -->
+</head>
+<body>
+    <div ui-view></div>
+</body>
+</html>

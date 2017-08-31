@@ -8,12 +8,8 @@ module.exports = function ($state) {
     model.deleteAccount = function (index) {
         model.accounts.splice(index, 1);
     };
-    model.create = function (account) {
-        if (account.id) {
-            model.accounts[model.selectedAccountIndex] = angular.copy(account);
-        } else {
-            account.id = model.accounts.length + 1;
-            model.accounts.push(account);
-        }
+    model.createAccount = function (account) {
+        account.id = model.accounts.length + 1;
+        model.accounts.push(account);
     };
 };

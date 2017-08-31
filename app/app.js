@@ -23,12 +23,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
             accounts: function (accountService) {
                 return accountService.getAccounts();
             }
-        },
-        onEnter: function () {
-            console.log('enter');
-        },
-        onExit: function () {
-            console.log('exit');
         }
     })
         .state('account', {

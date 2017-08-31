@@ -25,7 +25,7 @@
         <button type="button" class="btn btn-primary add-button"
                 data-toggle="modal"
                 data-target="#createAccountModal">Add</button>
-        <account-modal on-create="model.create(newAccount)"
+        <account-modal on-send="model.createAccount(account)"
                        class="modal fade"
                        tabindex="-1"
                        role="dialog"

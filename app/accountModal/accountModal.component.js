@@ -6,6 +6,6 @@ module.exports = {
     controllerAs: "model",
     bindings: {
         account: '<',
-        onCreate: '&'
+        onSend: '&'
     }
 };

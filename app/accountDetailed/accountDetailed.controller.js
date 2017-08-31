@@ -22,12 +22,23 @@ function renderChart(activities) {
 
 module.exports = function (accountService, $stateParams, $state) {
     let model = this;
+    model.$onInit = function () {
+        accountService.getAccount($stateParams.id)
+            .then(function (value) {
+                model.account = value;
+                renderChart(model.account.activities);
+            });
+    };
     model.delete = function () {
         $state.go('home');
     };
-    accountService.getAccount($stateParams.id)
-        .then(function (value) {
-            model.account = value;
-            renderChart(model.account.activities);
-        });
+    model.setAccount = function () {
+        model.currentAccount = angular.copy(model.account);
+    };
+    model.updateAccount = function (account) {
+        accountService.updateAccount(account)
+            .then(function () {
+                $state.reload();
+            });
+    };
 }

@@ -4,7 +4,7 @@ module.exports = function () {
     let model = this;
     model.send = function () {
         if (model.accountFrom.$valid) {
-            model.onCreate({newAccount: model.account});
+            model.onSend({account: model.account});
             model.reset();
         } else {
             angular.forEach(model.accountFrom.$error,

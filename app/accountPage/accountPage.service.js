@@ -15,4 +15,11 @@ module.exports = function ($http, $q, $sce) {
             (response) => $q.reject(response.status)
         );
     };
+    this.updateAccount = function (account) {
+        let trustedUrl = $sce.trustAsResourceUrl(API_URL + '/account/' + account.id);
+        return $http.put(trustedUrl, account).then(
+            (response) => response.data,
+            (response) => $q.reject(response.status)
+        );
+    };
 };
