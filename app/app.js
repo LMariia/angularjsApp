@@ -1,7 +1,8 @@
 'use strict';
 require('angular-ui-router');
+require('angular-ui-bootstrap');
 const angular = require('angular');
-const myApp = angular.module('myApp', ['ui.router']);
+const myApp = angular.module('myApp', ['ui.router', 'ui.bootstrap']);
 // controllers
 myApp.controller('AccountDetailedController', ['accountService', '$stateParams', '$state', require('./accountDetailed/accountDetailed.controller')]);
 myApp.controller('AccountModalController', require('./accountModal/accountModal.controller'));

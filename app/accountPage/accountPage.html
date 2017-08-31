@@ -1,4 +1,15 @@
 <div class="container" id="table">
+    <ul uib-pagination
+        boundary-links="true"
+        total-items="model.accounts.length"
+        ng-model="model.currentPage"
+        ng-change="model.pageChanged()"
+        class="pagination-sm"
+        max-size="model.maxSize"
+        previous-text="&lsaquo;"
+        next-text="&rsaquo;"
+        first-text="&laquo;"
+        last-text="&raquo;"></ul>
     <div class="header">
         <div class="col-xs-3">Id</div>
         <div class="col-xs-3">Name</div>
@@ -6,7 +17,7 @@
         <div class="col-xs-3">Email</div>
     </div>
     <div class="panel-group" id="accordion">
-        <div ng-repeat="account in model.accounts track by $index"
+        <div ng-repeat="account in model.accountsPart track by $index"
              class="panel"
              ng-click="model.openDetails(account.id)">
             <div class="col-xs-3">
